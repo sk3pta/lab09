@@ -20,8 +20,8 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
-           mkdir ../artifacts && 
-           mv _build/*.tar.gz ../artifacts/ 
+           cd _build && mkdir ../artifacts && 
+           mv *.tar.gz ../artifacts/ 
            
     - name: Publish
       uses: actions/upload-artifact@v2
